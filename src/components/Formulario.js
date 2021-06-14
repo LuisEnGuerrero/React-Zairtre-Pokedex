@@ -40,7 +40,7 @@ class Formulario extends Component {
         });
     }
 
-    comprobarCambios = () => {
+/*    comprobarCambios = () => {
 
         var email = this.correoRef.current.value;
         var asunto = this.nombreRef.current.value;
@@ -52,15 +52,8 @@ class Formulario extends Component {
         });
     };
 
-    constructor() {
-        super();
-        this.enviarEmail = this.enviarEmail.bind(this);
-    }
 
-
-    render() {
-
-    /*    const enviarEmail = async (e) => {
+        const enviarEmail = async (e) => {
             e.preventDefault();
             const { email, asunto, mensaje } = this.state;
             const form = await axios.post("/api/mensaje", {
@@ -68,7 +61,16 @@ class Formulario extends Component {
                 asunto,
                 mensaje
             });
+
+
+    constructor() {
+        super();
+        this.enviarEmail = this.enviarEmail.bind(this);
+    }
         }*/
+
+
+    render() {
     
         if(this.state.user.nombre){
             var user = this.state.user;
