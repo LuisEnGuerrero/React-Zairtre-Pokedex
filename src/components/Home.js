@@ -14,25 +14,18 @@ const Home = () => {
 
 
     const [pokemon, setPokemon] = useState([]);
-    const [pagina, setPagina] = useState(0);
+    let [pagina, setPagina] = useState(0);
     const [loading, setLoading] = useState(true);
     let fin = 3;
     let inicio = 1;
+    let end = 901;
 
     //Construir Poke Home
     const getPokeHome = async () => {
 
         let pokemonArray = [];
 
-        if (inicio>0 && fin<=258 && inicio<fin){
-            inicio=Math.abs(inicio+pagina);
-            fin=Math.abs(fin+pagina);
-        }else{
-            inicio=Math.abs(fin+pagina);
-            fin=Math.abs(inicio+pagina);
-        }
-
-        for (let i = inicio; i <= fin; i++) {
+        for (let i = rang[0]; i <= rang[1]; i++) {
             pokemonArray.push(await getListPokemons(i));
         }
         setPokemon(pokemonArray);
@@ -46,12 +39,28 @@ const Home = () => {
         return res;
     }
 
+    const getPagina = () => {
+        inicio = inicio + pagina;
+        fin = fin + pagina;
+        if (inicio<0 && fin<end){
+            inicio=inicio+pagina+end;
+            fin=fin+pagina+end;
+        }else if (fin>end){
+            fin = 3;
+            inicio = 1;
+            pagina=0;
+                    }
+        return [inicio, fin];
+    }
+    const rang=getPagina();
+
     
 
     useEffect(() => {
         getPokeHome();
 
-    }, [pagina])
+
+    }, [pagina])// eslint-disable-line react-hooks/exhaustive-deps
 
 
     return (
@@ -68,7 +77,7 @@ const Home = () => {
             <div className="center">
 
                 <div id="content" className="content-home subheader">
-                    <h1 className="subheader">Pokemones del {Math.abs(inicio + pagina)} al {Math.abs(fin + pagina)}</h1>
+                    <h1 className="subheader">Pokemones del {rang[0]} al {rang[1]}</h1>
                     {loading ? (
                         <Loader/>
                     ) : (

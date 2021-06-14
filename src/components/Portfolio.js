@@ -7,15 +7,9 @@ import Skills from './portfolio/Skills';
 
 class Portfolio extends Component {
 
-    state = {
-        user: {}
-    };
 
     render() {
 
-        if (this.state.user.nombre) {
-            var user = this.state.user;
-        }
 
         return (
             <div id="portfolio">

@@ -7,7 +7,7 @@ class Slider extends Component {
 
         return (
             <div id="slider" className={this.props.size}>
-                <img src={this.props.image}/>
+                <img src={this.props.image} alt="Pokedex Zairtre"/>
                 <h1>{this.props.title}</h1>
                 {this.props.btn &&
                     <Link to="/pokedex" className="btn-white">{this.props.btn}</Link>

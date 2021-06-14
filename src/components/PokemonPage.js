@@ -29,7 +29,7 @@ const PokemonPage = ({ match }) => {
     useEffect(() => {
         getPokemon(id);
         
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className="center">
