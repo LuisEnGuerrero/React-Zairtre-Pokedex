@@ -69,6 +69,7 @@ const Home = () => {
             <Slider
                 title=''
                 image={title}
+                nameImage="Pokedex Zairtre"
                 /*title="Gracias por visitarme! Este Sitio está Diseñado con React!"*/
                 btn="PokeBox"
                 size="slider-big"
