@@ -1,0 +1,847 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #aca9a9;
+}
+
+.App-link {
+  color: #f63606;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  background: #807b7b;
+  
+  /* FUENTES */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+
+#header {
+  height: 120px;
+  width: 100%;
+  background: #aca9a9;
+  border-bottom: solid #ccc;
+  border-top: solid #f63606;
+  color: darkorange;
+  text-shadow: 0px 1px 2px#444;
+
+}
+
+.center {
+  width: 90%;
+  margin: 0px auto;
+}
+
+.clearfix {
+  clear: both;
+  float: none;
+}
+
+#logo {
+  width: 30%;
+  font-size: 22px;
+  float: left;
+  margin-top: 40px;
+}
+
+#logo img {
+  display: block;
+  float: left;
+  height: 80px;
+  border-radius: 15%;
+  margin-top: -18px;
+  margin-right: 1px;
+  animation: girar infinite 30s linear;
+}
+
+@keyframes girar {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+#brand {
+  display: block;
+  margin: 0px;
+  float: left;
+}
+
+#menu {
+  width: 70%;
+  float: right;
+  font-size: 18px;
+ 
+}
+
+#menu ul {
+  line-height: 110px;
+  width: 65%;
+  float: right;
+}
+
+#menu ul li {
+  display: inline-block;
+  list-style: none;
+  height: 46px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#menu a{
+  text-decoration: none;
+  color: darkorange;
+  transition: 300ms all;
+}
+
+#menu a:hover {
+  color: #f63606;
+}
+
+.active {
+  border-bottom: 2px solid #f63606;
+  border-top: 2px solid #f63606;
+}
+
+#slider {
+  width: 100%;
+  height: 350px;
+  /*line-height: 320px;*/
+  color: #aca9a9;
+  text-shadow: 0px 0px 5px #444;
+
+  /* DEGRADADO */
+  background: rgb(255,191,112);
+  background: -moz-radial-gradient(center, ellipse cover, rgb(255,191,112) 6%, rgb(255,188,106) 14%, rgb(255,157,38) 98%, rgb(255,156,36) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(6%, rgb(255,191,112)), color-stop(14%, rgb(255,188,106)), color-stop(98%, rgb(255,157,38)), color-stop(100%, rgb(255,156,36)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgb(255,191,112) 6%, rgb(255,188,106) 14%, rgb(255,157,38) 98%, rgb(255,156,36) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgb(255,191,112) 6%, rgb(255,188,106) 14%, rgb(255,157,38) 98%, rgb(255,156,36) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgb(255,191,112) 6%, rgb(255,188,106) 14%, rgb(255,157,38) 98%, rgb(255,156,36) 100%);
+  background: radial-gradient(ellipse at center, rgb(255,191,112) 6%, rgb(255,188,106) 14%, rgb(255,157,38) 98%, rgb(255,156,36) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbf70', endColorstr='#ff9c24', GradientType=1 );
+  
+}
+
+#slider h1 {
+  margin-top: 2.0px;
+  padding: 0px;
+  padding-top: 150px;
+  text-align: center;
+}
+
+#slider img{
+  margin-top: 25px;
+  padding: 0px;
+  padding-top: 15px;
+  text-align: center;
+  height: 50%;
+
+}
+
+#slider a{
+  margin-top: -125px;
+}
+
+.btn-white {
+  display: block;
+  background: white;
+  color: rgb(88, 88, 88);
+  padding: 10px;
+  width: 100px;
+  height: 50px;
+  margin: 0px auto;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-shadow: none;
+  text-decoration: none;
+  line-height: 35px;
+  box-shadow: 0px 0px 5px rgb(88, 88, 88);
+  margin-top: 40px;
+  border-radius: 5px;
+  transition: 300ms all;
+}
+
+.btn-white:hover {
+  background: #444;
+  color: white;
+}
+
+#slider.slider-small {
+  height: 150px;
+
+}
+
+#slider.slider-small h1 {
+  margin-top: -60px;
+  padding: 0px;
+  padding-top: 5px;
+  text-emphasis-color: #5798ce, 2px, 1px;
+  color: yellow;
+}
+
+#content {
+  width: 70%;
+  float: left;
+  min-height: 650px;
+  margin-right: 20px;
+
+}
+
+.content-home{
+  min-height: 425px !important;
+}
+
+#slidebar {
+  padding-top: 4%;
+  width: 25%;
+  float: left;
+
+}
+
+.slidebar-item {
+  background: #aca9a9;
+  padding: 20px;
+  margin-top: 30px;
+
+}
+
+.slidebar-item h3 {
+  text-transform: uppercase;
+  font-size: 17px;
+  margin: 0px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 3px solid #eee;
+
+}
+
+.slidebar-item .btn {
+  margin: 0px auto;
+  margin-top: 10px;
+
+}
+
+.btn {
+  display: block;
+  background: black;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-decoration: none;
+  max-width: 120px;
+  transition: 300ms all;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.btn-success {
+  background: rgb(23, 150, 19);
+
+}
+
+.btn-success:hover {
+  background: black;
+
+}
+
+.btn-warning {
+  background: rgb(255, 171, 0) !important;
+  color: white !important;
+  width: 120px;
+  text-align: center;
+  border: solid 1px rgb(82, 39, 23);
+  
+}
+
+.btn-warning img{
+  width: 40%;
+  height: auto;
+}
+
+.btn-danger {
+  background: rgb(255, 0, 0) !important;
+  color: white !important;
+  text-align: center;
+  float: left;
+  
+}
+
+.btn-danger img{
+  width: 55%;
+  height: auto;
+  
+}
+
+.btn-danger:hover {
+  background: black;
+
+}
+
+.mid-form {
+  width: 50%;
+  margin: 0px auto;
+
+}
+
+.mid-form label {
+  display: block;
+  float: left;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 17px;
+
+}
+
+input[type="text"], textarea, input[type="file"] {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #ccc;
+  padding: 3px;
+  margin-bottom: 5px;
+  transition: 300ms all;
+
+}
+
+input[type="text"]:focus, textarea:focus{
+  box-shadow: 0px 0px 5px #aca9a9 inset;
+
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 150px;
+  max-height: 300px;
+
+}
+
+input[type="submit"] {
+  margin-top: 15px;
+
+}
+
+.padding-5 {
+  padding-top: 5%;
+  padding-left: 5%;
+}
+
+.paddingTLR-52 {
+  padding-top: 5%;
+  padding-left: 5%;
+  padding: 2%;
+}
+
+.paddingRBL-5 {
+  padding-right: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+}
+
+.margin-top-7 {
+  margin-top: 7%;
+}
+
+.margin-bottom-66 {
+  margin-bottom: 66%;
+}
+
+.pokemon-content{
+  text-align: justify;
+  text-indent: 2%;
+  white-space: pre-wrap;
+}
+
+.thumb {
+  display: block;
+  width: 170px;
+  float: left;
+  
+}
+
+.radiobuttons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  float: left;
+
+}
+
+#footer {
+  background: #aca9a9;
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  color: darkorange;
+  text-shadow: 0px 1px 2px#444;
+
+}
+
+#footer p {
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.pokemon-item {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: left;
+
+}
+
+.pokemon-item .image-wrap {
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  float: left;
+  margin-right: 15px;
+  border: 1px solid #ccc;
+
+}
+
+.pokemon-item .image-wrap img {
+  height: 100%;
+  text-align: center;
+
+}
+
+.pokemon-item h2 {
+  display: block;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 7px;
+
+}
+
+.pokemon-item .date {
+  display: block;
+  width: 100%;
+  color: rgb(122, 122, 122);
+
+}
+
+.pokemon-item a {
+  display: block;
+  width: 15%;
+  margin-left: 142px;
+  color: #444;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: 300ms all;
+
+}
+
+.pokemon-item a:hover {
+  border: 1px solid #444;
+  border-radius: 3px;
+  background-color: #444;
+  color: #ccc;
+}
+
+.subheader {
+  font-size: 35px;
+  border-bottom: 1px solid #aca9a9;
+  padding-bottom: 10px;
+
+}
+
+.pokemon-detail .image-wrap {
+  float: none;
+  width: 100%;
+  height: 300px;
+  
+}
+
+.pokemon-detail .image-wrap img{
+  width: 100%;
+  height: auto;
+
+}
+
+.pokemon-detail .subheader {
+  margin-top: 15px;
+  margin-bottom: 0px;
+  border: none;
+
+}
+
+.link-name {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  
+}
+
+.link-name:hover{
+  cursor: pointer;
+  color:rgb(227, 227, 227)
+
+}
+
+
+
+/* CARDS COLOURS BY TYPE */
+
+.grass {
+  background-color: rgb(38, 235, 90);
+
+}
+
+.fire {
+  background-color: rgb(235, 71, 38);
+
+}
+
+.water {
+  background-color: rgb(38, 186, 235);
+
+}
+
+.electric {
+  background-color: rgb(235, 209, 38);
+
+}
+
+.ice {
+  background-color: rgb(38, 219, 235);
+
+}
+
+.fighting {
+  background-color: rgb(235, 104, 38);
+
+}
+
+.poison {
+  background-color: rgb(176, 38, 235);
+
+}
+
+.ground {
+  background-color: rgb(181, 131, 92);
+
+}
+
+.flying {
+  background-color: rgb(161, 215, 230);
+
+}
+
+.psychic {
+  background-color: rgb(219, 77, 207);
+
+}
+
+.ghost {
+  background-color: rgb(131, 24, 133);
+
+}
+
+.bug {
+  background-color: rgb(113, 209, 10);
+
+}
+
+.rock {
+  background-color: rgb(166, 87, 8);
+
+}
+
+.dragon {
+  background-color: rgb(50, 24, 217);
+
+}
+
+.normal {
+  background-color: rgb(168, 162, 157);
+
+}
+
+.fairy {
+  background-color: rgb(255, 148, 191);
+  
+}
+
+.dark {
+  background-color: #444;
+
+}
+
+.steel {
+  background-color: rgb(144, 165, 165)
+}
+
+/* RESPONSIVE DESSING */
+
+@media (max-width: 1250px) {
+  .center {
+      width: 95%;
+
+  }
+
+  #menu ul {
+      width: auto;
+
+  }
+
+}
+
+@media (max-width: 1050px) {
+  #logo {
+      width: 265px;
+
+  }
+
+}
+
+@media (max-width: 740px) {
+  .center {
+      width: 85%;
+      
+  }
+
+  #logo {
+      float: none;
+      width: 245px;
+      margin: 0px auto;
+      margin-top: 20px;
+
+  }
+
+  #menu, #menu ul {
+      clear: both;
+      float: none;
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+      line-height: 43px;
+
+  }
+
+  #content {
+      float: none;
+      width: 95%;
+      margin: 0px auto;
+
+  }
+
+  #sidebar {
+      float: none;
+      width: 98%;
+      margin: 0px auto;
+      margin-bottom: 7%;
+
+  }
+
+  #slider h1{
+      padding-top: 115px;
+      font-size: 25px;
+
+  }
+
+  .mid-form {
+      width: 70%;
+      
+  }
+
+
+}
+
+@media (max-width: 500px) {
+  #header {
+      min-height: 130px;
+      overflow: hidden;
+
+  }
+
+  #menu, #menu ul {
+      line-height: 50px;
+
+  }
+
+  #menu ul li {
+      margin-left: 7px;
+      margin-right: 7px;
+
+  }
+
+  #slider {
+      height: 180px;
+
+  }
+
+  #slider h1 {
+      font-size: 19px;
+      padding-top: 30px;
+
+  }
+
+  #slider .btn-white {
+      margin-top: -35px;
+
+  }
+
+  #slider .slider-small {
+      height: 100px;
+
+  }
+
+  #slider .slider-small h1{
+      padding-top: 35px;
+
+  }
+
+}
+
+
+/* UTILITYS */
+
+.display-flex {
+  display: flex;
+}
+.align-items-center {
+  align-items: center;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-space-between {
+  justify-content: space-between;
+}
+.min-w-100-vh {
+  min-height: 100vh;
+}
+.font-weight-500 {
+  font-weight: 500;
+}
+/* Spaces */
+.space-top {
+  margin-top: 10px;
+}
+.space-top-lg {
+  margin-top: 30px;
+}
+.margin-0 {
+  margin: 0!important;
+}
+/* Fonts */
+.text-primary {
+  color: #293DCB;
+}
+.text-secondary {
+  color: #919191;
+}
+.text-center {
+  text-align: center;
+}
+
+/* Position */
+.position-relative {
+  position: relative;
+}
+
+/* Progress bar */
+.progress-container {
+  border-radius: 10px;
+  background-color: lightgrey;
+}
+
+.progress {
+  height: 0.5rem;
+  background-color: royalblue;
+  border-radius: 10px;
+}
+
+.progress.percent-95 {
+  width: 95%;
+}
+
+.progress.percent-90 {
+  width: 90%;
+}
+
+.progress.percent-85 {
+  width: 85%;
+}
+
+.progress.percent-80 {
+  width: 80%;
+}
+
+.progress.percent-75 {
+  width: 75%;
+}
+
+.progress.percent-70 {
+  width: 70%;
+}
+
+.progress.percent-65 {
+  width: 65%;
+}
+
+.progress.percent-60 {
+  width: 60%;
+}
+
+.progress.percent-55 {
+  width: 55%;
+}
+
+.progress.percent-50 {
+  width: 50%;
+}
+
+.progress.percent-45 {
+  width: 45%;
+}
+
+.progress.percent-40 {
+  width: 40%;
+}
+
