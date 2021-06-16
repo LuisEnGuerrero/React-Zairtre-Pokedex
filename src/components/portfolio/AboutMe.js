@@ -1,6 +1,7 @@
 import React from 'react';
 import picture from '../../assets/images/LuisBiblio.jpg';
 import Download from '../Download';
+import curriculo from '../../assets/Documentos/CLV120621.pdf';
 
 const AboutMe = () => {
     
@@ -20,7 +21,7 @@ const AboutMe = () => {
                         <p className="text-white text-secondary card-text lh-base text-start">
                             Me sorprendió el poder de Napster! del que me volví asiduo fanático. Con el paso del Tiempo, YouTube que hasta ahora no ha perdido su lugar, aunque lo ha compartido con otros proveedores de contenido. Y la Magia del Marketing Digital que es un terreno aún por explorar en muchos sentidos. Es por esto que me he dedicado al estudio y aplicación de las poderosas herramientas de diseño y administración de páginas Web que ofrece JavaScript con soporte de otras tecnologías para alcanzar el máximo desempeño. Este Sitio es una pequeña muestra de mi trabajo. Espero que lo disfrutes.
                         </p>
-                        <button onClick={<Download />} className="btn btn-primary space-top" download="Hoja de Vida Chachagui Colombia - Luis Enrique Guerrero 120621.pdf">Currículo!</button>
+                        <a href={curriculo} onClick={<Download />} className="btn btn-primary space-top" download="Hoja de Vida Chachagui Colombia - Luis Enrique Guerrero 120621.pdf">Currículo!</a>
                         <div className="subheader"></div>
                     </div>
                 </div>
