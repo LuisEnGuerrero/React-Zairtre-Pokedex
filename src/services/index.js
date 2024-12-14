@@ -7,20 +7,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/api/mensaje', (req, res) => {
-    nodemailer.createTestAccount((err, account) => {
-        const htmlEmail = `
+    const { correoRef, asunto, mensaje } = req.body;
+
+    const htmlEmail = `
         <h3>Email enviado desde la Poke React</h3>
         <ul>
-            <li>Email: ${req.body.correoRef}</li>
-            <li>Asunto: ${req.body.asunto}</li>
+            <li>Email: ${correoRef}</li>
+            <li>Asunto: ${asunto}</li>
         </ul>
         <h3>Mensaje</h3>
-        <p> ${req.body.mensaje}</p>
-        `;
-    
-        let transporter = nodemailer.createTransport({
+        <p>${mensaje}</p>
+    `;
+
+    let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 587,
+        secure: false, // true for 465, false for other ports
         auth: {
             user: "xeon.planedo@gmail.com",
             pass: "Eddies2014"
@@ -29,20 +31,21 @@ app.post('/api/mensaje', (req, res) => {
 
     let mailOptions = {
         from: "luisguerrero@misena.edu.co",
-        to: req.body.correoRef,
+        to: correoRef,
         replyTo: "xeon.planedo@gmail.com",
-        subject: req.body.asunto,
-        text: req.body.mensaje,
-        html: htmoEmail
+        subject: asunto,
+        text: mensaje,
+        html: htmlEmail
     };
 
-    transporter.sendMail(mailOptions, (err, res) => {
+    transporter.sendMail(mailOptions, (err, info) => {
         if (err) {
-            return console.log(err);
+            console.error('Error al enviar el correo:', err);
+            return res.status(500).send('Error al enviar el correo');
         }
-        console.log("Mensaje enviado: %s", info.mensaje);
+        console.log("Mensaje enviado: %s", info.messageId);
         console.log("Url del mensaje: %s", nodemailer.getTestMessageUrl(info));
-    });
+        res.status(200).send('Correo enviado con éxito');
     });
 });
 

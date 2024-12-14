@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <Router />
-
       <div className="clearfix"></div>
       <Footer />
     </div>

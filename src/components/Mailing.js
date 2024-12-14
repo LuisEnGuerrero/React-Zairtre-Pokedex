@@ -1,11 +1,10 @@
-import React, { Component } from 'React';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 class Mailing extends Component {
-
-    email = React.createRef();
-    asunto = "Mensaje desde la PokeReact: "+React.createRef();
-    mensaje = React.createRef();
+    emailRef = React.createRef();
+    asuntoRef = React.createRef();
+    mensajeRef = React.createRef();
 
     state = {
         email: "",
@@ -14,10 +13,9 @@ class Mailing extends Component {
     };
 
     comprobarCambios = () => {
-
-        var email = this.email.current.value;
-        var asunto = this.asunto.current.value;
-        var mensaje = this.mensaje.current.value;
+        const email = this.emailRef.current.value;
+        const asunto = this.asuntoRef.current.value;
+        const mensaje = this.mensajeRef.current.value;
         this.setState({
             email: email,
             asunto: asunto,
@@ -25,21 +23,47 @@ class Mailing extends Component {
         });
     };
 
-    constructor () {
+    constructor() {
         super();
         this.enviarEmail = this.enviarEmail.bind(this);
     }
 
-    async enviarEmail (e) {
+    async enviarEmail(e) {
         e.preventDefault();
         const { email, asunto, mensaje } = this.state;
-        const form = await axios.post("/api/mensaje", {
-            email,
-            asunto,
-            mensaje
-        });
+        try {
+            await axios.post("/api/mensaje", {
+                email,
+                asunto,
+                mensaje
+            });
+            alert('Email enviado con éxito');
+        } catch (error) {
+            alert('Error al enviar el email. Inténtalo de nuevo más tarde.');
+        }
     }
 
+    render() {
+        return (
+            <div id="mailing">
+                <form className="mid-form" onSubmit={this.enviarEmail} onChange={this.comprobarCambios}>
+                    <div className="form-group">
+                        <label htmlFor="email">Correo Electrónico:</label>
+                        <input type="email" name="email" className="form-control" ref={this.emailRef} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="asunto">Asunto:</label>
+                        <input type="text" name="asunto" className="form-control" ref={this.asuntoRef} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="mensaje">Mensaje:</label>
+                        <textarea name="mensaje" className="form-control" ref={this.mensajeRef}></textarea>
+                    </div>
+                    <input type="submit" value="Enviar" className="btn btn-success" />
+                </form>
+            </div>
+        );
+    }
 }
 
 export default Mailing;

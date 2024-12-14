@@ -65,15 +65,6 @@ const Skills = () => {
                 <div className="col-md-6">
                     <div>
                         <div className="display-flex justify-content-space-between">
-                            <span>Vue</span>
-                            <span>75%</span>
-                        </div>
-                        <div className="progress-container space-top">
-                            <div className="progress percent-75"></div>
-                        </div>
-                    </div>
-                    <div className="space-top-lg">
-                        <div className="display-flex justify-content-space-between">
                             <span>Python</span>
                             <span>80%</span>
                         </div>
@@ -83,7 +74,16 @@ const Skills = () => {
                     </div>
                     <div className="space-top-lg">
                         <div className="display-flex justify-content-space-between">
-                            <span>MongoDB</span>
+                            <span>FastAPI</span>
+                            <span>80%</span>
+                        </div>
+                        <div className="progress-container space-top">
+                            <div className="progress percent-80"></div>
+                        </div>
+                    </div>
+                    <div className="space-top-lg">
+                        <div className="display-flex justify-content-space-between">
+                            <span>Django</span>
                             <span>70%</span>
                         </div>
                         <div className="progress-container space-top">
@@ -93,19 +93,19 @@ const Skills = () => {
                     <div className="space-top-lg">
                         <div className="display-flex justify-content-space-between">
                             <span>Node.js</span>
-                            <span>55%</span>
+                            <span>75%</span>
                         </div>
                         <div className="progress-container space-top">
-                            <div className="progress percent-55"></div>
+                            <div className="progress percent-75"></div>
                         </div>
                     </div>
                     <div className="space-top-lg">
                         <div className="display-flex justify-content-space-between">
-                            <span>Git</span>
-                            <span>40%</span>
+                            <span>MongoDB</span>
+                            <span>80%</span>
                         </div>
                         <div className="progress-container space-top">
-                            <div className="progress percent-40"></div>
+                            <div className="progress percent-80"></div>
                         </div>
                     </div>
                 </div>

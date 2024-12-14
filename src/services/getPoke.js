@@ -1,17 +1,16 @@
-import axios from 'axios'
+import axios from 'axios';
 import Global from '../Global';
 
-const baseUrl = Global.url
+const baseUrl = Global.url;
 
-const getPoke = name => {
-  const promise = axios(
-    `${baseUrl}pokemon/${encodeURIComponent(name.toLowerCase())}`,
-    {
-      method: 'GET'
-    }
-  )
+const getPoke = async (name) => {
+  try {
+    const response = await axios.get(`${baseUrl}pokemon/${encodeURIComponent(name.toLowerCase())}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching Pokémon data:', error);
+    throw error;
+  }
+};
 
-  return promise
-}
-
-export default getPoke
+export default getPoke;

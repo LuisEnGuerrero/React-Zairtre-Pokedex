@@ -5,74 +5,55 @@ import { Row, Col } from 'react-bootstrap';
 import Pokemon from './Pokemon';
 import Loader from './Loader';
 
+const PokeBox = () => {
+    const [pokemon, setPokemon] = useState([]); // Estado para almacenar los Pokémon encontrados
+    const [loading, setLoading] = useState(true); // Estado para manejar la carga
+    const [error, setError] = useState(false); // Estado para manejar errores
 
-
-
-const PokeBox = () => 
-{
-
-    const [pokemon, setPokemon] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    
-    
-    //Construir Pokedex
+    // Función para obtener la lista completa de Pokémon
     const getPokemonList = async () => {
-
-        let pokemonArray = [];
-        for (let i = 1; i <= 258; i++) {
-            pokemonArray.push(await getPokemonData(i));
+        setLoading(true);
+        setError(null);
+        try {
+            const res = await axios.get(`${Global.url}pokemon?limit=258`);
+            const pokemonArray = await Promise.all(res.data.results.map(async p => {
+                const res = await axios.get(p.url);
+                return res.data;
+            }));
+            setPokemon(pokemonArray);
+        } catch (err) {
+            setError('Error al cargar los Pokémon. Inténtalo de nuevo más tarde.');
+        } finally {
+            setLoading(false);
         }
-        setPokemon(pokemonArray);
-        setLoading(false);
+    };
 
-    }
-
-    //Construir PokemonPage
-    const getPokemonData = async (id) => {
-
-        const res = await axios.get(Global.url+`pokemon/${id}`);
-        return res;
-    }
-
-
-    useEffect ( () => {
-        getPokemonList();
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    // useEffect para manejar la carga inicial
+    useEffect(() => {
+        getPokemonList(); // Obtener la lista completa de Pokémon
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        
         <div id="pokebox">
-
-
             <div className="center">
-
-
-
                 <div>
-                    {/* LISTADO de Pokemons que vienen del API REST de Pokeapi.io */}
                     {loading ? (
-                        <Loader/>
+                        <Loader /> // Mostrar el componente Loader mientras se cargan los datos
+                    ) : error ? (
+                        <div className="error">{error}</div> // Mostrar el mensaje de error si ocurre un error
                     ) : (
                         <Row>
-                            {pokemon.map (p => (
-                                <Col key={p.data.name} xs={12} sm={12} md={4} lg={4} xl={4}>
-                                    <Pokemon pokemon={p.data}/>
+                            {pokemon.map((p) => (
+                                <Col key={p.name} xs={12} sm={12} md={4} lg={4} xl={4}>
+                                    <Pokemon pokemon={p} /> {/* Mostrar cada Pokémon encontrado */}
                                 </Col>
                             ))}
                         </Row>
                     )}
-
                 </div>
-
-
-
             </div> {/* FIN DIV CENTER */}
-
-
         </div>
-
     );
-}
+};
 
 export default PokeBox;
