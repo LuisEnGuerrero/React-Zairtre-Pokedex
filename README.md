@@ -1,3 +1,89 @@
+# React Zairtre Pokedex
+
+Este proyecto es una Pokedex desarrollada con React, que permite a los usuarios buscar y visualizar información sobre diferentes Pokémon. La aplicación utiliza la API de PokeAPI para obtener los datos de los Pokémon y presenta una interfaz amigable y fácil de usar.
+
+## Tecnologías Utilizadas
+
+- **React**: Biblioteca de JavaScript para construir interfaces de usuario.
+- **React Router**: Biblioteca para manejar la navegación en la aplicación.
+- **Axios**: Cliente HTTP para realizar solicitudes a la API de PokeAPI.
+- **React Bootstrap**: Biblioteca de componentes de Bootstrap para React.
+- **PokeAPI**: API pública para obtener datos de Pokémon.
+- **CSS**: Para el diseño y la presentación de la aplicación.
+
+## Hito Alcanzado
+
+### Antes de la Actualización
+
+- **React 17.2**: La aplicación estaba construida utilizando React 17.2.
+- **Dependencias Antiguas**: Varias bibliotecas y dependencias estaban desactualizadas.
+- **Funcionalidad de Búsqueda**: La funcionalidad de búsqueda estaba integrada en el mismo componente que la lista completa de Pokémon, lo que causaba conflictos y problemas de rendimiento.
+
+### Después de la Actualización
+
+- **React 19.0**: La aplicación ha sido actualizada a React 19.0, lo que mejora el rendimiento y la compatibilidad con las últimas características de React.
+- **Dependencias Actualizadas**: Todas las bibliotecas y dependencias han sido actualizadas a sus versiones más recientes.
+- **Separación de Lógica**: La funcionalidad de búsqueda ha sido separada en un componente independiente (`PokeSearch.js`), lo que mejora la organización del código y el rendimiento de la aplicación.
+- **Mejoras en la Interfaz**: Se han realizado mejoras en la interfaz de usuario para una mejor experiencia de usuario.
+
+## Instalación y Uso
+
+### Requisitos Previos
+
+- Node.js y npm instalados en tu máquina.
+
+### Instalación
+
+1. Clona el repositorio:
+    ```bash
+    git clone https://github.com/tu-usuario/react-pokedex.git
+    ```
+2. Navega al directorio del proyecto:
+    ```bash
+    cd react-pokedex
+    ```
+3. Instala las dependencias:
+    ```bash
+    npm install
+    ```
+
+### Uso
+
+1. Inicia la aplicación:
+    ```bash
+    npm start
+    ```
+2. Abre tu navegador y navega a `http://localhost:3000` para ver la aplicación en funcionamiento.
+
+### Estructura del Proyecto
+
+- **[components](http://_vscodecontentref_/1)**: Contiene todos los componentes de React utilizados en la aplicación.
+  - **`Pokedex.js`**: Componente principal que muestra la lista completa de Pokémon.
+  - **`PokeBox.js`**: Componente que maneja la lista completa de Pokémon.
+  - **`PokeSearch.js`**: Componente que maneja la funcionalidad de búsqueda.
+  - **`Slider.js`**: Componente para mostrar el slider en la parte superior de la página.
+  - **`Sidebar.js`**: Componente para mostrar la barra lateral con opciones de búsqueda.
+  - **`Pokemon.js`**: Componente para mostrar la información de un Pokémon individual.
+  - **`Loader.js`**: Componente para mostrar un indicador de carga mientras se obtienen los datos.
+- **[assets](http://_vscodecontentref_/2)**: Contiene las imágenes y otros recursos estáticos utilizados en la aplicación.
+- **`src/App.css`**: Contiene los estilos CSS para la aplicación.
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Si deseas contribuir, por favor abre un issue o envía un pull request.
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+
+---
+Desarrollador:
+**LuisEnGuerrero.Dev**
+
+
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
