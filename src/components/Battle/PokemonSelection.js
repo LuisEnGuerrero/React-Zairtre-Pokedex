@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './PokemonSelection.css'; // Estilos específicos para este componente
 import Global from '../../Global'; // Importar la URL base de la API
 import axios from 'axios'; // Axios para manejar las solicitudes HTTP
-import Sidebar from '../Sidebar';
+//import Sidebar from '../Sidebar';
 
 const PokemonSelection = ({ onSelect }) => {
-    const [search, setSearch] = useState('');
+    const [search] = useState('');
     const [pokemonList, setPokemonList] = useState([]); // Lista completa de Pokémon
     const [filteredPokemons, setFilteredPokemons] = useState([]); // Pokémon filtrados
     const [selectedPokemons, setSelectedPokemons] = useState([]); // Pokémon seleccionados por el usuario
