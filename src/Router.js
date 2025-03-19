@@ -10,6 +10,7 @@ import Formulario from './components/Formulario';
 import Portfolio from './components/Portfolio';
 import PokemonPage from './components/PokemonPage';
 import PokeSearch from './components/PokeSearch'; // Importar PokeSearch
+import BattleArena from './components/Battle/BattleArena'; // Importar BattleArena
 
 class Router extends Component {
     render() {
@@ -25,6 +26,7 @@ class Router extends Component {
                     <Route path="/search/:search" element={<PokeSearch />} /> {/* Usar PokeSearch para búsquedas */}
                     <Route path="/formulario" element={<Formulario />} />
                     <Route path="/portfolio" element={<Portfolio />} />
+                    <Route path="/battle" element={<BattleArena />} /> {/* Nueva ruta */}
                     <Route path="*" element={<Error />} />
                 </Routes>
             </BrowserRouter>

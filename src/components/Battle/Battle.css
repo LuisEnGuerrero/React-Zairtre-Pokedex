@@ -1,0 +1,107 @@
+/* PokemonSelection.css */
+
+/* Contenedor principal */
+.pokemon-selection {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+.pokemon-selection h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Lista de Pokémon */
+.pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 100%;
+}
+
+/* Tarjetas de Pokémon */
+.pokemon-card {
+    width: 150px;
+    height: 200px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pokemon-card img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.pokemon-card p {
+    margin: 0;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Hover y selección */
+.pokemon-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-card.selected {
+    border: 3px solid #4caf50;
+    background-color: #e8f5e9;
+}
+
+/* Botón de confirmación */
+.confirm-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.confirm-button:hover {
+    background-color: #388e3c;
+}
+
+.confirm-button:disabled {
+    background-color: #9e9e9e;
+    cursor: not-allowed;
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 768px) {
+    .pokemon-card {
+        width: 120px;
+        height: 180px;
+    }
+
+    .pokemon-card img {
+        max-width: 80px;
+    }
+
+    .confirm-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

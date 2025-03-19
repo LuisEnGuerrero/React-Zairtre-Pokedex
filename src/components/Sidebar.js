@@ -7,7 +7,7 @@ class Sidebar extends Component {
             <aside id="slidebar">
                 <div id="search" className="slidebar-item">
                     <h3>Buscador de Pokemones</h3>
-                    <p>Encuentra el Pokemon que buscas:</p>
+                    <span>Encuentra el Pokemon que buscas:</span>
                     <Search />
                 </div>
             </aside>

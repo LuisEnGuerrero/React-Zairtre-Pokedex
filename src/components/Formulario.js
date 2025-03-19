@@ -3,100 +3,75 @@ import Slider from './Slider';
 import Sidebar from './Sidebar';
 
 class Formulario extends Component {
-    nombreRef = React.createRef();
-    correoRef = React.createRef();
-    mensajeRef = React.createRef();
-    hombreRef = React.createRef();
-    mujerRef = React.createRef();
-    otroRef = React.createRef();
-
-    state = {
-        user: {}
-    };
-
-    recibirFormulario = (e) => {
-        e.preventDefault();
-
-        let genero = 'hombre';
-        if (this.hombreRef.current.checked) {
-            genero = this.hombreRef.current.value;
-        } else if (this.mujerRef.current.checked) {
-            genero = this.mujerRef.current.value;
-        } else {
-            genero = this.otroRef.current.value;
-        }
-
-        const user = {
-            nombre: this.nombreRef.current.value,
-            correo: this.correoRef.current.value,
-            mensaje: this.mensajeRef.current.value,
-            genero: genero
-        };
-
-        this.setState({
-            user: user
-        });
-    };
-
     render() {
-        const { user } = this.state;
-
         return (
             <div id="formulario">
-                <Slider
-                    title="Escríbeme"
-                    size="slider-small"
-                />
+                <Slider title="Escríbeme" size="slider-small" />
 
                 <div className="center">
                     <div id="content" className="clearfix">
-                        {/* MOSTRAR DATOS DEL FORMULARIO */}
-                        {user.nombre && 
-                        <div id="user-data">
-                            <p>Nombre: <strong>{user.nombre}</strong></p>
-                            <p>Correo: <strong>{user.correo}</strong></p>
-                            <p>Mensaje: <strong>{user.mensaje}</strong></p>
-                            <p>Genero: <strong>{user.genero}</strong></p>
+                        {/* Mensaje informativo opcional */}
+                        <div id="user-info" className="mb-3 px-3">
+                            <h3>Por favor, llena el formulario para enviarnos tu feedback.</h3>
                         </div>
-                        }
 
-                        {/* CREACION DEL FORMULARIO */}
-                        <form className="mid-form" onSubmit={this.recibirFormulario}>
-                            <div className="form-group">
+                        {/* Formulario de feedback usando Formspree */}
+                        <form
+                            className="mid-form"
+                            action="https://formspree.io/f/mvgkzpal"
+                            method="POST"
+                        >
+                            <div className="form-group mb-3">
                                 <label htmlFor="nombre">Nombre Completo:</label>
-                                <input type="text" name="nombre" className="form-control" ref={this.nombreRef} />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="correo">Correo Electrónico:</label>
-                                <input 
-                                    type="email" 
-                                    name="correo" 
+                                <input
+                                    type="text"
+                                    name="nombre"
                                     className="form-control"
-                                    ref={this.correoRef}
+                                    placeholder="Ingresa tu nombre completo"
+                                    required
                                 />
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="mensaje">Escríbeme tu mensaje:</label>
-                                <textarea 
+                            <div className="form-group mb-3">
+                                <label htmlFor="correo">Correo Electrónico:</label>
+                                <input
+                                    type="email"
+                                    name="correo"
+                                    className="form-control"
+                                    placeholder="ejemplo@dominio.com"
+                                    required
+                                />
+                            </div>
+                            <div className="form-group mb-3">
+                                <label htmlFor="mensaje">Mensaje:</label>
+                                <textarea
                                     name="mensaje"
                                     className="form-control"
-                                    ref={this.mensajeRef}
+                                    placeholder="Escribe tu mensaje aquí..."
+                                    required
                                 ></textarea>
                             </div>
-                            <div className="form-group radiobuttons">
-                                <input type="radio" name="genero" value="hombre" ref={this.hombreRef} />Hombre
-                                <input type="radio" name="genero" value="mujer" ref={this.mujerRef} />Mujer
-                                <input type="radio" name="genero" value="otro" ref={this.otroRef} />Otro
-                            </div>
-
-                            <div className="clearfix"></div>
-
+                            <div className="form-group rating mb-3">
+                                <label>Califica tu experiencia</label>
+                                <div className="stars">
+                                    <input type="radio" id="star5" name="rating" value="5" required />
+                                    <label htmlFor="star5" title="5 estrellas">&#9733;</label>
+                                    <input type="radio" id="star4" name="rating" value="4" />
+                                    <label htmlFor="star4" title="4 estrellas">&#9733;</label>
+                                    <input type="radio" id="star3" name="rating" value="3" />
+                                    <label htmlFor="star3" title="3 estrellas">&#9733;</label>
+                                    <input type="radio" id="star2" name="rating" value="2" />
+                                    <label htmlFor="star2" title="2 estrellas">&#9733;</label>
+                                    <input type="radio" id="star1" name="rating" value="1" />
+                                    <label htmlFor="star1" title="1 estrella">&#9733;</label>
+                                </div>
+                            </div>              {/* Campo oculto opcional para redireccionar a tu correo en el backend o para identificar el destino */}
+                            <input type="hidden" name="_subject" value="Nuevo mensaje desde tu Pokedex" />
+                            <input type="hidden" name="_replyto" value="luisenguerrero.cm@gmail.com" />
                             <input type="submit" value="Enviar" className="btn btn-success" />
                         </form>
                     </div>
-
                     <Sidebar blog="false" />
-                </div> {/* FIN DIV CENTER */}
+                </div>
             </div>
         );
     }

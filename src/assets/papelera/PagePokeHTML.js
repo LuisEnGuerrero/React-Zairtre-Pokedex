@@ -57,7 +57,7 @@ const Home = () => {
 
         } catch (err) {
             let message = err.statusText || "Ocurrió un Error";
-            $main.innerHTML = `<p>Error ${err.status}: ${err.message}<p> `
+            $main.innerHTML = `<span>Error ${err.status}: ${err.message}</span>`
         }
     }
     d.addEventListener("DOMContentLoaded", e => loadPokemons(Global.url + 'pokemon/?offset=0&limit=3'))

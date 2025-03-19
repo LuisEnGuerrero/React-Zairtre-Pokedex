@@ -1,17 +1,24 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-body {
-  text-align: center;
+/* RESET Y BASE */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
   background: #F8F9FA;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* CONTENEDOR PRINCIPAL */
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -19,11 +26,23 @@ body {
   pointer-events: none;
 }
 
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 
 .App-header {
   background-color: #007BFF;
@@ -40,24 +59,32 @@ body {
   color: #FFC107;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Estilos para el Header */
+/* HEADER */
 #header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 120px;
   width: 100%;
   background: #343A40;
-  border-bottom: solid #6C757D;
-  border-top: solid #007BFF;
+  border-top: 2px solid #007BFF;
+  border-bottom: 2px solid #6C757D;
+  padding: 0 20px;
   color: #FFC107;
   text-shadow: 0px 1px 2px #444;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+}
+
+#logo img {
+  height: 80px;
+  border-radius: 15%;
+  margin-right: 10px;
+  animation: girar infinite 30s linear;
 }
 
 .center {
@@ -70,56 +97,33 @@ body {
   float: none;
 }
 
-#logo {
-  width: 30%;
-  font-size: 22px;
-  float: left;
-  margin-top: 40px;
-}
-
-#logo img {
-  display: block;
-  float: left;
-  height: 80px;
-  border-radius: 15%;
-  margin-top: -18px;
-  margin-right: 1px;
-  animation: girar infinite 30s linear;
-}
-
 @keyframes girar {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 #brand {
-  display: block;
-  margin: 0;
-  float: left;
+  display: flex;
+  align-items: center;
 }
 
 #menu {
-  width: 70%;
-  float: right;
-  font-size: 18px;
+  display: flex;
+  align-items: center;
 }
 
 #menu ul {
-  line-height: 110px;
-  width: 65%;
-  float: right;
+  display: flex;
+  list-style: none;
 }
 
 #menu ul li {
-  display: inline-block;
-  list-style: none;
-  height: 46px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 0 10px;
 }
 
 #menu a {
@@ -137,25 +141,27 @@ body {
   border-top: 2px solid #007BFF;
 }
 
-/* Estilos para el slider */
+/* SLIDER */
 #slider {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 350px;
+  background: radial-gradient(circle, rgba(0, 123, 255, 1) 0%, rgba(0, 123, 255, 0.8) 50%, rgba(0, 123, 255, 0.6) 100%);
   color: #F8F9FA;
+  position: relative;
   text-shadow: 0px 0px 5px #444;
-  background: radial-gradient(circle, rgba(0,123,255,1) 0%, rgba(0,123,255,0.8) 50%, rgba(0,123,255,0.6) 100%);
 }
 
 #slider h1 {
+  font-size: 3rem;
+  margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3rem;
-  color: white;
 }
 
 #slider img {
@@ -165,12 +171,13 @@ body {
 }
 
 #slider a {
-  margin-top: 18%;
-  margin-right: 13%;
-  margin-left: -20%;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  transform: translateX(-50%);
 }
 
-/* Estilos para el botón blanco */
+/* BOTÓN BLANCO */
 .btn-white {
   background: #F8F9FA;
   color: #343A40;
@@ -188,59 +195,75 @@ body {
   color: #F8F9FA;
 }
 
+
 #slider.slider-small {
   height: 150px;
 }
 
 #slider.slider-small h1 {
-  margin-top: -15%;
-  padding: 0;
-  padding-top: 5px;
+  font-size: 2.8rem;
   color: #FFC107;
 }
 
+/* CONTENEDOR CENTRAL Y SIDEBAR */
+.center {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
 #content {
-  width: 70%;
-  float: left;
+  flex: 1 1 65%;
   min-height: 650px;
-  margin-right: 20px;
+  padding-right: 20px;
 }
 
-.content-home {
-  min-height: 425px !important;
-}
-
-/* Estilos para el sidebar */
 #sidebar {
+  flex: 1 1 30%;
   padding-top: 4%;
+  align-items: center;
+  color: #F5F5DC;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  z-index: 10;
+  background: #6C757D;
+  overflow-y: auto;
+  max-height: calc(100vh - 70px);
 }
 
 .slidebar-item {
-  float: left;
-  width: 25%;
   background: #6C757D;
   padding: 20px;
-  margin-top: 30px;
-  margin-bottom: 2%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: #F5F5DC;
 }
 
 .slidebar-item h3 {
   text-transform: uppercase;
   font-size: 17px;
-  margin: 0;
-  padding-bottom: 10px;
   margin-bottom: 10px;
+  padding-bottom: 10px;
   border-bottom: 3px solid #EEE;
+  color: #F5F5DC;
 }
 
 .slidebar-item .btn {
-  margin: 0 auto;
   margin-top: 10px;
+  align-self: center;
 }
 
-/* Estilos para botones */
+
+/* BOTONES GENERALES */
 .btn {
-  display: block;
+  display: inline-block;
   background: #007BFF;
   color: #F8F9FA;
   padding: 15px;
@@ -248,7 +271,6 @@ body {
   text-transform: uppercase;
   font-size: 14px;
   text-decoration: none;
-  max-width: 120px;
   transition: 300ms all;
   border: none;
   border-radius: 5px;
@@ -261,14 +283,15 @@ body {
 
 .btn-success:hover {
   background: #218838;
+  box-shadow: 0 0 10px #F5F5DC;
 }
 
 .btn-warning {
-  background: #FFC107 !important;
-  color: #343A40 !important;
+  background: #FFC107;
+  color: #343A40;
   width: 120px;
   text-align: center;
-  border: solid 1px #6C757D;
+  border: 1px solid #6C757D;
 }
 
 .btn-warning img {
@@ -277,10 +300,9 @@ body {
 }
 
 .btn-danger {
-  background: #DC3545 !important;
-  color: #F8F9FA !important;
+  background: #DC3545;
+  color: #F8F9FA;
   text-align: center;
-  float: left;
 }
 
 .btn-danger img {
@@ -292,6 +314,32 @@ body {
   background: #C82333;
 }
 
+/* Estilos para los botones de navegación Home */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-group .btn {
+  background: #007BFF;
+  color: #F8F9FA;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 300ms all;
+  border: 1px solid #007BFF;
+  margin: 0 10px;
+}
+
+.btn-group .btn:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+}
+
+/* FORMULARIOS */
 .mid-form {
   width: 50%;
   margin: 0 auto;
@@ -299,34 +347,59 @@ body {
 
 .mid-form label {
   display: block;
-  float: left;
-  text-align: left;
-  margin-top: 10px;
   margin-bottom: 5px;
   font-size: 17px;
 }
 
-input[type="text"], textarea, input[type="file"] {
+input[type="text"],
+textarea,
+input[type="file"] {
   width: 100%;
-  height: 30px;
   border: 1px solid #6C757D;
-  padding: 3px;
-  margin-bottom: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
   transition: 300ms all;
 }
 
-input[type="text"]:focus, textarea:focus {
-  box-shadow: 0px 0px 5px #007BFF inset;
+input[type="text"]:focus,
+textarea:focus {
+  box-shadow: 0 0 5px #007BFF inset;
 }
 
 textarea {
-  width: 100%;
   height: 150px;
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 150px;
-  max-height: 300px;
 }
+
+/* Estilos para la barra de estrellas */
+.rating {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.rating .stars {
+  display: flex;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  color: #ddd;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: #ffc107;
+}
+
 
 input[type="submit"] {
   margin-top: 15px;
@@ -389,6 +462,67 @@ input[type="submit"] {
   padding: 0;
 }
 
+/* TARJETAS DE POKÉMON */
+.pokemon-card {
+  background-color: #F8F9FA;
+  border: none;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Mantiene el footer en la parte inferior */
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 10px;
+  min-height: 350px;  /* Altura mínima para uniformidad */
+}
+
+/* Contenedor del título: altura fija y truncamiento */
+.pokemon-card .card-title {
+  height: 30px;           /* Altura fija para el título */
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Estilos específicos para el footer de la tarjeta */
+.pokemon-card .card-footer {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Botón dentro de la tarjeta: tamaño y espaciado adecuados */
+.pokemon-card .btn {
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  width: auto;
+  margin: 0 auto;
+}
+
+/* Cuerpo de la tarjeta: que ocupe el espacio disponible */
+.pokemon-card .card-body {
+  flex-grow: 1;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokemon-card .pokemon-image {
+  width: 100%;
+  height: 200px;      /* Altura fija para la imagen */
+  object-fit: contain;/* Ajusta la imagen sin deformarla */
+}
+
 .pokemon-item {
   width: 100%;
   border-bottom: 1px solid #EEE;
@@ -448,6 +582,21 @@ input[type="submit"] {
   padding-bottom: 10px;
 }
 
+/* PÁGINA DE DETALLE */
+.pokemon-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.type-badge {
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
 .pokemon-detail .image-wrap {
   float: none;
   width: 100%;
@@ -463,6 +612,36 @@ input[type="submit"] {
   margin-top: 15px;
   margin-bottom: 0;
   border: none;
+}
+
+.pokemon-big-card {
+  background-color: #F8F9FA;
+  border: none;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 10px;
+  min-height: 175px;
+  width: 50%;
+}
+
+.pokemon-big-card .pokemon-big-image {
+  width: 100%;
+  height: auto;
+}
+
+.pokemon-big-card .pokemon-big-text {
+  width: 100%;
+  text-align: center;
+  margin-top: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 2rem;
 }
 
 .link-name {
@@ -510,15 +689,6 @@ input[type="submit"] {
 }
 
 /* Estilos para PokemonPage */
-.pokemon-card {
-  background-color: #F8F9FA;
-  border: none;
-}
-
-.pokemon-image {
-  width: 16rem;
-}
-
 .pokemon-details-card {
   background-color: #F8F9FA;
   border: none;
@@ -541,13 +711,17 @@ input[type="submit"] {
   padding-bottom: 5px;
 }
 
-.ability-badge, .stat-badge, .move-badge, .info-badge {
+.ability-badge,
+.stat-badge,
+.move-badge,
+.info-badge {
   background-color: #6C757D;
   color: white;
   padding: 5px;
   border-radius: 5px;
   margin: 5px 0;
 }
+
 
 /* CARDS COLOURS BY TYPE */
 .grass {
@@ -622,10 +796,13 @@ input[type="submit"] {
   background-color: #6C757D;
 }
 
-/* Estilos para la página de error */
+/* PÁGINA DE ERROR */
 .error-page {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 50px 20px;
+  text-align: center;
 }
 
 .error-page .subheader {
@@ -644,7 +821,7 @@ input[type="submit"] {
 }
 
 .card-title {
-  color: #FFC107;
+  color: white;
 }
 
 .card-text {
@@ -730,6 +907,12 @@ input[type="submit"] {
   text-align: center;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .footer-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
 .footer-logo {
   display: flex;
   align-items: center;
@@ -742,12 +925,6 @@ input[type="submit"] {
   width: 86px;
   height: 86px;
   border-radius: 50%;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .footer-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 
@@ -794,106 +971,35 @@ input[type="submit"] {
   font-weight: bold;
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 1250px) {
+
+/* MEDIA QUERIES */
+@media (max-width: 760px) {
   .center {
-    width: 95%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #content,
+  #sidebar {
+    flex: 1 1 100%;
+    padding: 10px 0;
   }
 
   #menu ul {
-    width: auto;
+    flex-direction: column;
+    align-items: center;
   }
 
-  #slider .slider-small h1 {
-    margin-top: -35%;
-    padding-top: 35px;
+  #menu ul li {
+    margin: 5px 0;
   }
-
-
-}
-
-@media (max-width: 1050px) {
-  #logo {
-    width: 265px;
-  }
-
-  #slider .slider-small h1 {
-    margin-top: -35%;
-    padding-top: 35px;
-  }
-
-
-}
-
-@media (max-width: 760px) {
-  .center {
-    width: 85%;
-  }
-
-  #logo {
-    float: none;
-    width: 245px;
-    margin: 0 auto;
-    margin-top: 20px;
-  }
-
-  #menu, #menu ul {
-    clear: both;
-    float: none;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    line-height: 43px;
-  }
-
-  #content {
-    float: none;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .slidebar-item {
-    float: none;
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 7%;
-  }
-
-  #slider .slider-small h1 {
-    margin-top: -35%;
-    padding-top: 35px;
-  }
-
-  #slider h1 {
-    padding-top: 115px;
-    font-size: 25px;
-  }
-
-  .mid-form {
-    width: 70%;
-  }
-
-  .footer-row {
-    display: block;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
 }
 
 @media (max-width: 500px) {
   #header {
-    min-height: 130px;
-    overflow: hidden;
-  }
-
-  #menu, #menu ul {
-    line-height: 50px;
-  }
-
-  #menu ul li {
-    margin-left: 7px;
-    margin-right: 7px;
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
   }
 
   #slider {
@@ -901,74 +1007,57 @@ input[type="submit"] {
   }
 
   #slider h1 {
-    font-size: 19px;
-    padding-top: 30px;
+    font-size: 1.8rem;
   }
-
-  #slider .btn-white {
-    margin-top: -35px;
-  }
-
-  #slider .slider-small {
-    height: 100px;
-  }
-
-  #slider .slider-small h1 {
-    margin-top: -35%;
-    padding-top: 35px;
-  }
-
-  .slidebar-item {
-    float: none;
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 7%;
-  }
-
-  .footer-row {
-    display: block;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
 }
 
-/* UTILITY CLASSES */
+/* UTILIDADES */
 .display-flex {
   display: flex;
 }
+
 .align-items-center {
   align-items: center;
 }
+
 .justify-content-center {
   justify-content: center;
 }
+
 .justify-content-space-between {
   justify-content: space-between;
 }
+
 .min-w-100-vh {
   min-height: 100vh;
 }
+
 .font-weight-500 {
   font-weight: 500;
 }
+
 /* Spaces */
 .space-top {
   margin-top: 10px;
 }
+
 .space-top-lg {
   margin-top: 30px;
 }
+
 .margin-0 {
-  margin: 0!important;
+  margin: 0 !important;
 }
+
 /* Fonts */
 .text-primary {
   color: #007BFF;
 }
+
 .text-secondary {
   color: #6C757D;
 }
+
 .text-center {
   text-align: center;
 }

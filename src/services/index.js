@@ -16,7 +16,7 @@ app.post('/api/mensaje', (req, res) => {
             <li>Asunto: ${asunto}</li>
         </ul>
         <h3>Mensaje</h3>
-        <p>${mensaje}</p>
+        <span>${mensaje}</span>
     `;
 
     let transporter = nodemailer.createTransport({

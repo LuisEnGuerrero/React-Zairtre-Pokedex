@@ -1,0 +1,71 @@
+.battle-result-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.battle-result-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.battle-winner {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.battle-teams {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.team-container {
+    text-align: left;
+}
+
+.team-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.team-pokemon {
+    padding: 5px;
+    font-size: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.team-pokemon.alive {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.team-pokemon.defeated {
+    color: #dc3545;
+    text-decoration: line-through;
+}
+
+.restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.restart-button:hover {
+    background-color: #0056b3;
+}

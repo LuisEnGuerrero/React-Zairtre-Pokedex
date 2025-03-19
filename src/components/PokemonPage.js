@@ -46,13 +46,13 @@ const PokemonPage = () => {
                 ) : (
                     <Row>
                         <Col xs={12}>
-                            <Card className="pokemon-card my-3 p-3 rounded text-center shadow mb-5">
+                            <Card className="pokemon-big-card my-3 rounded text-center shadow mb-5">
                                 <Card.Img
-                                    className="pokemon-image"
+                                    className="pokemon-big-image"
                                     src={pokemonDetails.sprites.front_default}
                                     variant='top'
                                 />
-                                <Card.Body className={`${pokemonDetails.types[0].type.name} rounded text-white`}>
+                                <Card.Body className={`${pokemonDetails.types[0].type.name} rounded pokemon-big-text`}>
                                     <Card.Title as='div'>
                                         <strong>#{pokemonDetails.id} {pokemonDetails.name.charAt(0).toUpperCase() + pokemonDetails.name.slice(1)}</strong>
                                     </Card.Title>

@@ -16,8 +16,8 @@ const Intro = () => {
                         <span className="display-2">HOLA!!!</span>
                         <h1 className="margin-0 text-xl-start">Yo Soy Luis Enrique!</h1>
                         <div className="text-md-start blockquote">
-                            <p>Web developer &</p>
-                            <p><strong>Máster en Frameworks</strong> para JavaScript</p>
+                        <span>Web developer &</span>
+                            <span><strong>Máster en Frameworks</strong> para JavaScript</span>
                         </div>
                     </div>
                     <a href={mailtoLink} className="btn btn-secondary btn-lg">Escríbeme!</a>

@@ -1,0 +1,31 @@
+.opponent-container {
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.opponent-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e63946;
+}
+
+.opponent-team {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 10px 0;
+    color: #457b9d;
+}
+
+.opponent-pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
